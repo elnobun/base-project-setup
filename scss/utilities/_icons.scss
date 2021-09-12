@@ -1,0 +1,47 @@
+// Note: Solid uses - font-weight: 900 - Font Awesome 5 Free
+// Regular use - font-weight: 400 - Font Awesome 5 Brands
+// Brands do not need font-weight - Font Awesome 5 Brands
+
+.carousel-control-prev::before,
+.carousel-control-next::before,
+.chevron-right::before,
+.chevron-left::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+.carousel-control-prev-icon-left::before,
+.carousel-control-next-icon-right::before,
+.chevron-right::before,
+.chevron-left::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.carousel-control-prev-icon-left::before,
+.carousel-control-next-icon-right::before {
+    color: var(--bs-white);
+    font-size: 1.75rem;
+}
+
+.carousel-control-prev-icon-left::before {
+    content: "\f053";
+    padding-right: 0.5rem;
+}
+
+.carousel-control-next-icon-right::before {
+    content: "\f054";
+    padding-left: 0.5rem;
+}
+
+.chevron-left::before {
+    content: "\f053";
+}
+
+.chevron-right::before {
+    content: "\f054";
+}

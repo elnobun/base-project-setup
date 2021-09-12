@@ -1,9 +1,42 @@
+:root {
+    // Font family
+    --ff-body:
+    
+    // Clamp(min-fs(mobile), actual-fs(laptop), max-fs(desktop))
+    --fs-xl: clamp(3.5rem, 12vw + 1rem, 12rem)
+    --fs-md:
+    --fs-normal:
+}
+
+@media only screen and (min-width:768px) {
+    :root {
+        --fs-xl:
+        --fs-md:
+        --fs-normal:
+    }
+}
+
 html,
 body {
     font-size: 100%;
 }
 
+// Stops font flicking
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 body {
+    opacity: 0;
+    animation: pageFadeIn ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.15s;
+    animation-delay: 0.1s;
     overflow-x: hidden;
 }
 
