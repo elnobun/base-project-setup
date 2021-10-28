@@ -16,11 +16,6 @@
     }
 }
 
-html,
-body {
-    font-size: 100%;
-}
-
 // Stops font flicking
 @keyframes pageFadeIn {
     from {
@@ -32,6 +27,7 @@ body {
 }
 
 body {
+    min-height: 100vh;
     opacity: 0;
     animation: pageFadeIn ease-in 1;
     animation-fill-mode: forwards;
@@ -61,10 +57,4 @@ a[href^="tel"] {
 
 hr:not([size]) {
     height: 0.125rem;
-}
-
-ul,
-p {
-    margin-bottom: 1.25rem;
-    line-height: 1.875rem;
 }
