@@ -2,6 +2,14 @@
 // Regular use - font-weight: 400 - Font Awesome 5 Brands
 // Brands do not need font-weight - Font Awesome 5 Brands
 
+/* ICONS 
+============================= */
+.checked::before,
+.twitter::before,
+.facebook::before,
+.linkedin::before,
+.instagram::before,
+.youtube::before,
 .carousel-control-prev::before,
 .carousel-control-next::before,
 .chevron-right::before,
@@ -12,8 +20,18 @@
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     vertical-align: middle;
+    user-select: none;
 }
 
+/* Icon Family */
+.twitter::before,
+.facebook::before,
+.linkedin::before,
+.instagram::before,
+.youtube::before {
+    font-family: "Font Awesome 5 Brands";
+}
+.checked::before,
 .carousel-control-prev-icon-left::before,
 .carousel-control-next-icon-right::before,
 .chevron-right::before,
@@ -22,10 +40,52 @@
     font-weight: 900;
 }
 
+/* Icon styles */
+.twitter::before,
+.linkedin::before,
+.instagram::before,
+.youtube::before{
+    font-size: 2.125rem;
+}
+
+.facebook::before {
+    font-size: 1.6875rem;
+    color: white;
+    padding: .4rem 0 0 .5rem;
+}
+
+
 .carousel-control-prev-icon-left::before,
 .carousel-control-next-icon-right::before {
     color: var(--bs-white);
     font-size: 1.75rem;
+}
+
+.checked::before {
+    color: var(--bs-white);
+    margin-right: .5rem;
+    font-size: 1.3125rem;
+}
+
+/* Icon Type  */
+.twitter::before {
+    content: "\f099";
+}
+
+.facebook::before {
+    content: "\f39e";
+}
+
+.linkedin::before {
+    content: "\f0e1";
+}
+
+.instagram::before {
+    content: "\f16d";
+}
+
+.youtube::before {
+    content: "\f167";
 }
 
 .carousel-control-prev-icon-left::before {
@@ -44,4 +104,8 @@
 
 .chevron-right::before {
     content: "\f054";
+}
+
+.checked::before {
+    content: "\f00c";
 }
