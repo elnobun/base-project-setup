@@ -1,44 +1,62 @@
-@mixin marquee-component {
-    height: 100px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    width: auto;
-    .slide-track {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        animation: scroll 40s linear infinite;
-    }
+// @mixin grey-style-effect {
+//     filter: grayscale(100%);
+//     opacity: 0.7;
+//     user-select: none;
+//     transition: 0.3s ease-in-out;
 
-    .slide {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100px;
-        width: 250px;
-    }
+//     &:hover {
+//         filter: none;
+//         opacity: 1;
+//         user-select: none;
+//         transition: 0.3s ease-in-out;
+//     }
+// }
 
-    .blend {
-        filter: grayscale(100%);
-        opacity: 0.7;
-        user-select: none;
-        transition: 0.3s ease-in-out;
-        &:hover {
-            filter: none;
-            opacity: 1;
-            user-select: none;
-            transition: 0.3s ease-in-out;
-        }
-    }
 
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-}
+// @mixin marquee-component {
+//     height: 100px;
+//     margin: auto;
+//     overflow: hidden;
+//     position: relative;
+//     display: flex;
+//     width: auto;
+
+//     .slide-track {
+//         display: flex;
+//         align-items: center;
+//         white-space: nowrap;
+//         animation: scroll 40s linear infinite;
+//     }
+
+//     .slide {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         height: 100px;
+//         width: 250px;
+//     }
+
+//     .blend {
+//         filter: grayscale(100%);
+//         opacity: 0.7;
+//         user-select: none;
+//         transition: 0.3s ease-in-out;
+
+//         &:hover {
+//             filter: none;
+//             opacity: 1;
+//             user-select: none;
+//             transition: 0.3s ease-in-out;
+//         }
+//     }
+
+//     @keyframes scroll {
+//         0% {
+//             transform: translateX(0);
+//         }
+
+//         100% {
+//             transform: translateX(-100%);
+//         }
+//     }
+// }

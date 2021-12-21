@@ -1,1 +1,1 @@
-console.log("Transpiled");
+console.log("TypeScript loaded");

@@ -1,31 +1,7 @@
 /* HEADER + NAVIGATION
 ============================== */
-#header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: var(--dark-blue-alpha);
-	height: auto;
-	box-shadow: var(--drop-shadow);
-	z-index: 1000;
-	.container {
-		height: 100%;
-	}
-
-	.logo {
-		display: inline-block;
-		padding: 0.3125rem 0;
-		width: 186px;
-		height: auto;
-	}
-}
-
-/* Navigation 
-=============================== */
-
 /* Hamburger Menu Icon 
-=================================== */
+------------------------------ */
 #hamburgerBtn {
 	position: relative;
 	padding: 10px;
@@ -36,6 +12,7 @@
 	z-index: 1000;
 	align-items: flex-start;
 }
+
 #hamburgerBtn span {
 	display: flex;
 	align-items: center;
@@ -84,18 +61,8 @@
 	transform: rotate(-45deg);
 }
 
-/* ===== Media Queries for Header =====  */
-@media only screen and (min-width: 768px) {
-}
+/* MEDIA QUERIES - HEADER
+============================== */
+@media only screen and (min-width: 768px) {}
 
-@media only screen and (min-width: 992px) {
-	#hamburgerBtn {
-		display: none;
-	}
-}
-
-@media only screen and (min-width: 1200px) {
-	.navbar-expand-lg .navbar-nav .nav-link {
-		padding-right: 1.875rem;
-	}
-}
+@media only screen and (min-width: 992px) {}
