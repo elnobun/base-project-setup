@@ -51,15 +51,32 @@ html {
 	scroll-behavior: smooth;
 }
 
+html:focus-within {
+	scroll-behavior: smooth;
+}
 
-body {
-	min-height: 100%;
+/* Remove all animations, transitions and smooth scroll for those who prefer not to see them */
+@media(prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 body {
+	height: 100%;
 	font-family: var(--ff-family);
 	font-size: var(--fs-normal);
 	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeSpeed;
 	color: var(--body-font-color);
 	overflow-x: hidden;
 	line-height: 1.5;
@@ -76,9 +93,19 @@ select {
 	appearance: none;
 }
 
+ul[class=list],
+ol[class=list] {
+	list-style: none;
+}
+
 a[href^="tel"] {
 	text-decoration: underline;
 	font-weight: var(--fw-bold);
+}
+
+/* Elements without a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
 }
 
 a {
@@ -104,7 +131,8 @@ video,
 canvas,
 svg {
 	max-width: 100%;
-	height: auto;
+	display: block;
+	// height: auto;
 }
 
 .eProtection {
@@ -172,10 +200,6 @@ svg {
 		--hero-height: 32.5rem;
 		--service-hero-height: 38.75rem;
 	}
-
-	// .container {
-	// 	max-width: 900px;
-	// }
 }
 
 
