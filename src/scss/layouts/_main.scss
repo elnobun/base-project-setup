@@ -1,8 +1,11 @@
+@use "./background-images";
+
 /* MAIN
 ============================== */
 
-/* Hero Backgrounds (mobile)
-------------------------------- */
+/* BACKGROUND IMAGES COMPONENT
+============================== */
+@include backgroundImages;
 
 /* Other Styles @include mixin
 ------------------------------- */
