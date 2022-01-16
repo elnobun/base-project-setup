@@ -1,7 +1,6 @@
 // Background Images Styles
-
-@mixin backgroundImages {
-    @media screen and (min-width: 768px) {}
-
-    @media screen and (min-width: 992px) {}
+%backgroundImages {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }

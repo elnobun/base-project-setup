@@ -1,86 +1,101 @@
 :root {
-	// Colors
-	--white: #ffffff;
-	--black: #000000;
+    // Colors
+    --white: #ffffff;
+    --black: #000000;
 
-	// Font Family
-	--ff-family: ;
+    // Font Family
+    --ff-family: ;
 
-	// Font weight
-	--fw-light: 300;
-	--fw-normal: 400;
-	--fw-medium: 500;
-	--fw-bold: 700;
+    // Font weight
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
 
-	// Font sizes
-	--fs-normal: 1rem;
-	--fs-nav: 1rem;
-	--fs-heading-1: ;
-	--fs-heading-2: ;
-	--fs-heading-3: ;
-	--fs-panel-title: ;
-	--fs-hero-text: ;
+    /* 
+		Responsive Font Size calculation
+		slope =(maxFontSize - minFontSize) / (maxWidth - minWidth) 
+		yAxisIntersection = -minWidth * slope+minFontSize
+		preferredValue = yAxisIntersection[rem]+(slope * 100)[vw]
 
-	// Border-radius
-	--form-border-radius: ;
-	--news-border-radius: ;
+		Font sizes=>clamp(minFontSize, preferredValue, maxFontSize);
 
-	// Shadows
-	--drop-shadow: ;
+		Be careful of using vw. Change it to rem units
 
-	// Height
-	--header-height: ;
-	--hero-height: ;
+		.header {
+		    font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
+		}
+	*/
+    --fs-normal: 1rem;
+    --fs-nav: 1rem;
+    --fs-heading-1: clamp(min-size, 5vw + 1rem, max-size);
+    // font-size: clamp(0.8rem, 0.8rem + 1vw, 2.2rem);
+    // sass => font-size: clamp(100%, #{"50% + 0.66vw"}, 150%);
+    --fs-heading-2: ;
+    --fs-heading-3: ;
+    --fs-panel-title: ;
+    --fs-hero-text: ;
 
-	// Link as buttons
-	--button-width: ;
-	--button-line-height: ;
-	--button-font-size: ;
+    // Border-radius
+    --form-border-radius: ;
+    --news-border-radius: ;
+
+    // Shadows
+    --drop-shadow: ;
+
+    // Height
+    --header-height: ;
+    --hero-height: ;
+
+    // Link as buttons
+    --button-width: ;
+    --button-line-height: ;
+    --button-font-size: ;
 }
 
 *,
 *::before,
 *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-	height: 100%;
-	scroll-behavior: smooth;
+    height: 100%;
+    scroll-behavior: smooth;
 }
 
 html:focus-within {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* Remove all animations, transitions and smooth scroll for those who prefer not to see them */
 @media(prefers-reduced-motion: reduce) {
-	html:focus-within {
-		scroll-behavior: auto;
-	}
+    html:focus-within {
+        scroll-behavior: auto;
+    }
 
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 body {
-	min-height: 100vh;
-	height: 100%;
-	font-family: var(--ff-family);
-	font-size: var(--fs-normal);
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeSpeed;
-	color: var(--body-font-color);
-	overflow-x: hidden;
-	line-height: 1.5;
+    min-height: 100vh;
+    height: 100%;
+    font-family: var(--ff-family);
+    font-size: var(--fs-normal);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+    color: var(--body-font-color);
+    overflow-x: hidden;
+    line-height: 1.5;
 }
 
 input[type="text"],
@@ -88,42 +103,41 @@ input[type="submit"],
 input[type="email"],
 input[type="number"],
 input[type="password"],
+textarea,
 select {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 ul[class=list],
 ol[class=list] {
-	list-style: none;
+    list-style: none;
 }
 
 a[href^="tel"] {
-	text-decoration: underline;
-	font-weight: var(--fw-bold);
+    text-decoration: underline;
+    font-weight: var(--fw-bold);
 }
 
 /* Elements without a class get default styles */
 a:not([class]) {
-	text-decoration-skip-ink: auto;
+    text-decoration-skip-ink: auto;
 }
 
 a {
-	text-decoration: none;
-	color: var(--dark-blue);
-	transition: 0.2s ease-in-out;
+    text-decoration: none;
 }
 
 p>a {
-	text-decoration: underline;
-	font-weight: var(--fw-bold);
+    text-decoration: underline;
+    font-weight: var(--fw-bold);
 }
 
 hr:not([size]) {
-	height: 0.125rem;
-	width: 200px;
-	margin: 1.5rem auto 2rem;
+    height: 0.125rem;
+    width: 200px;
+    margin: 1.5rem auto 2rem;
 }
 
 img,
@@ -131,121 +145,28 @@ picture,
 video,
 canvas,
 svg {
-	max-width: 100%;
-	display: block;
-	// height: auto;
+    max-width: 100%;
+    display: block;
 }
 
 .eProtection {
-	unicode-bidi: bidi-override;
-	direction: rtl;
+    unicode-bidi: bidi-override;
+    direction: rtl;
 }
 
 .visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-}
-
-/* TYPOGRAPHY  
-=====================================*/
-.heading-1 {
-	font-size: var(--fs-heading-1);
-	font-weight: var(--fw-bold);
-	letter-spacing: -0.02rem;
-	text-shadow: var(--heading-text-shadow);
-}
-
-.heading-2 {
-	font-size: var(--fs-heading-2);
-	font-weight: var(--fw-bold);
-	letter-spacing: -0.02rem;
-	margin-bottom: 1.5rem;
-}
-
-.heading-3 {
-	font-size: var(--fs-heading-3);
-	font-weight: var(--fw-bold);
-	margin-bottom: 1rem;
-}
-
-/* GRID PANELS
-====================================*/
-.grid-box {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min-content, 385px));
-	place-content: center;
-	gap: 1.875rem;
-	margin: 2rem 0;
-}
-
-.grid-box-4 {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(min-content, 420px));
-	place-content: center;
-	padding-top: 1.5rem;
-	gap: 1.875rem;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 /* ROOT MEDIA QUERIES
 ====================================*/
-@media screen and (min-width: 768px) {
-	:root {
-		// Height
-		--header-height: 113px;
-		--hero-height: 32.5rem;
-		--service-hero-height: 38.75rem;
-	}
-}
+@media screen and (min-width: 768px) {}
 
-
-
-@media screen and (min-width: 992px) {
-	:root {
-		// Font sizes
-		--fs-nav: ;
-		--fs-heading-1: ;
-		--fs-heading-2: ;
-		--fs-heading-3: ;
-
-		// Link as buttons
-		--button-width: ;
-		--button-line-height: ;
-		--button-font-size: ;
-	}
-
-	.container {
-		max-width: 1240px;
-	}
-
-	.paragraph {
-		width: 61.8rem;
-		margin: auto;
-		line-height: 30px;
-
-		p {
-			&:first-child {
-				margin-top: 2rem;
-			}
-
-			margin: 0 auto 2rem;
-			line-height: 30px;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-	}
-
-	.grid-box {
-		.grid-item {
-			margin: .625rem 0;
-		}
-	}
-}
+@media screen and (min-width: 992px) {}
