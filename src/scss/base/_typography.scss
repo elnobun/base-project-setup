@@ -1,18 +1,24 @@
 /* TYPOGRAPHY  
 =====================================*/
-.heading-1 {
+@use "../utilities/functions"as *;
+
+.h-1 {
     font-size: var(--fs-heading-1);
     font-weight: var(--fw-bold);
     letter-spacing: -0.02rem;
 }
 
-.heading-2 {
+.h-2 {
     font-size: var(--fs-heading-2);
     font-weight: var(--fw-bold);
 }
 
-.heading-3 {
+.h-3 {
     font-size: var(--fs-heading-3);
     font-weight: var(--fw-bold);
     margin-bottom: 1rem;
+}
+
+.paragraph {
+    font-size: clamped(16px, 20px)
 }

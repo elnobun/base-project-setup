@@ -1,101 +1,65 @@
+@use "sass:math";
+@use "sass:list";
+@use "../utilities/functions"as *;
+
 :root {
-    // Colors
-    --white: #ffffff;
-    --black: #000000;
+	// Colors
+	--white: #ffffff;
+	--black: #000000;
 
-    // Font Family
-    --ff-family: ;
+	// Font Family
+	--ff-family: ;
 
-    // Font weight
-    --fw-light: 300;
-    --fw-normal: 400;
-    --fw-medium: 500;
-    --fw-bold: 700;
-
-    /* 
-		Responsive Font Size calculation
-		slope =(maxFontSize - minFontSize) / (maxWidth - minWidth) 
-		yAxisIntersection = -minWidth * slope+minFontSize
-		preferredValue = yAxisIntersection[rem]+(slope * 100)[vw]
-
-		Font sizes=>clamp(minFontSize, preferredValue, maxFontSize);
-
-		Be careful of using vw. Change it to rem units
-
-		.header {
-		    font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
-		}
-	*/
-    --fs-normal: 1rem;
-    --fs-nav: 1rem;
-    --fs-heading-1: clamp(min-size, 5vw + 1rem, max-size);
-    // font-size: clamp(0.8rem, 0.8rem + 1vw, 2.2rem);
-    // sass => font-size: clamp(100%, #{"50% + 0.66vw"}, 150%);
-    --fs-heading-2: ;
-    --fs-heading-3: ;
-    --fs-panel-title: ;
-    --fs-hero-text: ;
-
-    // Border-radius
-    --form-border-radius: ;
-    --news-border-radius: ;
-
-    // Shadows
-    --drop-shadow: ;
-
-    // Height
-    --header-height: ;
-    --hero-height: ;
-
-    // Link as buttons
-    --button-width: ;
-    --button-line-height: ;
-    --button-font-size: ;
+	// Font weight
+	--fw-light: 300;
+	--fw-normal: 400;
+	--fw-medium: 500;
+	--fw-bold: 700;
 }
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
-    height: 100%;
-    scroll-behavior: smooth;
+	height: 100%;
+	scroll-behavior: smooth;
 }
 
 html:focus-within {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 /* Remove all animations, transitions and smooth scroll for those who prefer not to see them */
 @media(prefers-reduced-motion: reduce) {
-    html:focus-within {
-        scroll-behavior: auto;
-    }
+	html:focus-within {
+		scroll-behavior: auto;
+	}
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 body {
-    min-height: 100vh;
-    height: 100%;
-    font-family: var(--ff-family);
-    font-size: var(--fs-normal);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeSpeed;
-    color: var(--body-font-color);
-    overflow-x: hidden;
-    line-height: 1.5;
+	min-height: 100vh;
+	height: 100%;
+	font-family: var(--ff-family);
+	font-size: var(--fs-normal);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeSpeed;
+	color: var(--body-font-color);
+	overflow-x: hidden;
+	line-height: 1.5;
 }
 
 input[type="text"],
@@ -105,39 +69,40 @@ input[type="number"],
 input[type="password"],
 textarea,
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 ul[class=list],
 ol[class=list] {
-    list-style: none;
+	list-style: none;
+	padding: 0;
 }
 
 a[href^="tel"] {
-    text-decoration: underline;
-    font-weight: var(--fw-bold);
+	text-decoration: underline;
+	font-weight: var(--fw-bold);
 }
 
 /* Elements without a class get default styles */
 a:not([class]) {
-    text-decoration-skip-ink: auto;
+	text-decoration-skip-ink: auto;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 p>a {
-    text-decoration: underline;
-    font-weight: var(--fw-bold);
+	text-decoration: underline;
+	font-weight: var(--fw-bold);
 }
 
 hr:not([size]) {
-    height: 0.125rem;
-    width: 200px;
-    margin: 1.5rem auto 2rem;
+	height: 0.125rem;
+	width: 200px;
+	margin: 1.5rem auto 2rem;
 }
 
 img,
@@ -145,24 +110,28 @@ picture,
 video,
 canvas,
 svg {
-    max-width: 100%;
-    display: block;
+	max-width: 100%;
+	display: block;
+}
+
+img {
+	height: auto;
 }
 
 .eProtection {
-    unicode-bidi: bidi-override;
-    direction: rtl;
+	unicode-bidi: bidi-override;
+	direction: rtl;
 }
 
 .visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 /* ROOT MEDIA QUERIES
