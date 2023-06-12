@@ -1,0 +1,74 @@
+@use '../abstracts/mixins' as *;
+
+.carousel-wrapper {
+    // max-width: 68.75rem;
+    width: 100%;
+
+    button {
+        width: 2.5rem;
+    }
+
+    .carousel-slides {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        gap: var(--carousel-gap);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @include device(medium) {
+            grid-auto-columns: calc((100% / 2) - 18px);
+        }
+
+        @include device(large) {
+            grid-auto-columns: calc((100% / 3) - 27px);
+        }
+
+        // @media screen and (min-width: 800px) {}
+
+        // @media screen and (min-width: 900px) {}
+
+
+        &:has([data-class="carousel-item"]) {
+            --carousel-gap: 2.5rem;
+        }
+
+        [data-class="carousel-item"] {
+            scroll-snap-align: start;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            // border: 1px solid black;
+
+            :is(a) {
+                display: block;
+            }
+        }
+
+        &.no-transition {
+            scroll-behavior: auto;
+        }
+
+        &.dragging {
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+
+            [data-class="carousel-item"] {
+                cursor: grab;
+                user-select: none;
+            }
+
+            [data-class="carousel-item"]:is(a, figure, img) {
+                cursor: grab;
+                user-select: none;
+            }
+        }
+
+    }
+}

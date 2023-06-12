@@ -1,0 +1,27 @@
+// RESPONSIVE BREAKPOINTS
+$breakpoints: (
+    'small': (max-width: 40rem),
+    'medium': (min-width: 40.0625rem),
+    'large': (min-width: 63rem),
+    'max-medium': (max-width: 40.0613rem),
+    'max-large': (max-width: 62.9988rem),
+);
+
+@mixin device($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+
+    @if $raw-query {
+        $query: if(type-of($raw-query)=='string',
+            unquote($raw-query),
+            inspect($raw-query));
+
+        @media #{$query} {
+            @content;
+        }
+    }
+
+    @else {
+        @error 'No value found for `#{$breakpoint}`. '
+        + 'Please make sure it is defined in `$breakpoints` map at `abstract/mixins` folder.';
+    }
+}

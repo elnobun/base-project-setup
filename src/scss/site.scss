@@ -1,7 +1,23 @@
-@use "base";
+// Abstracts Files
+@use 'abstracts/mixins' as *;
+@use 'abstracts/variables' as *;
 
-@use "utilities";
+// Base Files
+@import 'base/reset';
+@import 'base/typography';
 
-@use "components";
+// Layout Files
+@import 'layout/grid';
 
-@use "layouts";
+// Components
+@import 'components/buttons';
+@import 'components/card';
+@import 'components/form';
+
+// Pages
+// @import 'pages/home';
+// @import 'pages/contact';
+
+// Themses
+// @import 'themes/theme';
+// @import 'themes/admin';

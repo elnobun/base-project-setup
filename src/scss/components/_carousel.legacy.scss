@@ -1,0 +1,71 @@
+/* Carousel Styles */
+.wrapper-container {
+    position: relative;
+    width: 100%;
+
+    .card-wrapper {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        overflow-x: scroll;
+        // padding-block: 35px;
+        // padding-inline: 0.25rem;
+        gap: 2rem;
+        cursor: grab;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+
+        &.grab {
+            cursor: grabbing;
+            user-select: none;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+        }
+
+        &.noSmooth {
+            scroll-behavior: auto;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .product-list {
+            scroll-snap-align: start;
+            padding-inline: 0;
+        }
+    }
+
+
+    .arrow.prev,
+    .arrow.next {
+        position: absolute;
+    }
+
+    .arrow.prev {
+        left: 0;
+    }
+
+    .arrow.next {
+        right: 0;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .wrapper-container {
+        .card-wrapper {
+            grid-auto-columns: calc((100% / 2));
+        }
+    }
+
+}
+
+@media screen and (min-width: 62rem) {
+    .wrapper-container {
+        .card-wrapper {
+            grid-auto-columns: calc(31.333333%);
+            scroll-padding-inline: 1rem;
+        }
+    }
+}

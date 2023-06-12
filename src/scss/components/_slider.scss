@@ -1,0 +1,45 @@
+[js-slider-wrapper] {
+    [js-slider-container] {
+        overflow: hidden;
+        display: grid;
+        // gap: 2rem;
+        position: relative;
+        height: 101px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 25px;
+            height: 100%;
+            background: linear-gradient(to left, transparent 1%, white 90%);
+            z-index: 99;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 100%;
+            background: linear-gradient(to right, transparent 1%, white 90%);
+            z-index: 99;
+            right: 0;
+        }
+
+    }
+
+    [js-slider-list] {
+        display: grid;
+        grid-auto-flow: column;
+        place-items: center;
+        gap: 3rem;
+        position: absolute;
+        // width: 100%;
+
+        & > * {
+            max-width: 155px;
+            // height: auto;
+            // width: 100%;
+        }
+    }
+}

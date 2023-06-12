@@ -1,0 +1,98 @@
+/* =============================================
+ Bootstrap 5.2.x Sass Configuration
+ 
+ IMPORTANT: Only Comment out needed components. Doing so will help 
+ save some file size in your compiled CSS. Keep in mind there are some 
+ dependencies across Sass imports that may make it more difficult to omit a file.
+ ============================================= */
+
+$primary: #A58838;
+$secondary: #898A8B;
+$white: #ffffff;
+$black: #000000;
+
+// Overrides & Integrations
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "white": $white,
+    "black": $black,
+);
+
+$custom-colors: (
+    "text": #505050,
+);
+
+
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$font-family-base: 'Titillium Web', sans-serif;
+$font-size-base: 1rem;
+$font-weight-base: 400;
+$font-style: normal;
+$border-color: var(--bs-primary);
+
+
+/* ========================================== 
+IMPORT ALL BOOTSTRAP CSS.
+
+IMPORTANT: Only uncomment if you are not sure.
+Make sure you comment out core, layout
+and components below.
+========================================== */
+
+//@import "~bootstrap/scss/bootstrap";
+
+/* ======================================= 
+CONFIGURATION: CORE BOOTSTRAP CSS 
+========================================== */
+// DO NOT COMMENT OUT!
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark.scss";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+/* =======================================
+LAYOUT & COMPONENTS
+Note: Only uncomment files you need
+==========================================*/
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+// @import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+// @import "~bootstrap/scss/containers";
+// @import "~bootstrap/scss/grid";
+// @import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+// @import "~bootstrap/scss/transitions";
+// @import "~bootstrap/scss/dropdown";
+// @import "~bootstrap/scss/button-group";
+// @import "~bootstrap/scss/nav";
+// @import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+// @import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+// @import "~bootstrap/scss/pagination";
+// @import "~bootstrap/scss/badge";
+// @import "~bootstrap/scss/alert";
+// @import "~bootstrap/scss/progress";
+// @import "~bootstrap/scss/list-group";
+// @import "~bootstrap/scss/close";
+// @import "~bootstrap/scss/toasts";
+// @import "~bootstrap/scss/modal";
+// @import "~bootstrap/scss/tooltip";
+// @import "~bootstrap/scss/popover";
+// @import "~bootstrap/scss/carousel";
+// @import "~bootstrap/scss/spinners";
+// @import "~bootstrap/scss/offcanvas";
+// @import "~bootstrap/scss/placeholders";
+
+// HELPERS
+@import "~bootstrap/scss/helpers";
+
+// UTILITIES
+@import "~bootstrap/scss/utilities/api";
