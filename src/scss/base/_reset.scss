@@ -1,17 +1,16 @@
 // root
 html {
-    scroll-behavior: smooth;
-}
-
-html:focus-within {
+    height: 100%;
     scroll-behavior: smooth;
 }
 
 // body
 body {
+    height: 100%;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    overscroll-behavior-x: contain;
 }
 
 //  links
