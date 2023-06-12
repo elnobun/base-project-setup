@@ -27,16 +27,12 @@
         }
 
         @include device(large) {
-            grid-auto-columns: calc((100% / 3) - 27px);
+            grid-auto-columns: calc((100% / 3) - 22px);
         }
-
-        // @media screen and (min-width: 800px) {}
-
-        // @media screen and (min-width: 900px) {}
 
 
         &:has([data-class="carousel-item"]) {
-            --carousel-gap: 2.5rem;
+            --carousel-gap: 1.5rem;
         }
 
         [data-class="carousel-item"] {
@@ -44,7 +40,6 @@
             cursor: pointer;
             position: relative;
             z-index: 1;
-            // border: 1px solid black;
 
             :is(a) {
                 display: block;
