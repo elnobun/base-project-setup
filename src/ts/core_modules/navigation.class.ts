@@ -56,7 +56,7 @@ export default class Navigation {
             const currentPage = target.getAttribute("href");
 
             // show the navbar menu
-            target.nextElementSibling?.toggleAttribute("js-dropdown-menu")
+            target.nextElementSibling?.toggleAttribute("data-js-dropdown-menu")
 
             // If link is already active on page load, move on.
             if (target.closest(".navBarListItem")?.classList.contains("active")) return
@@ -80,10 +80,10 @@ export default class Navigation {
     private handleNavigationToggle(): void {
         if (this.ui.navBar) {
             this.ui.navBarToggleButton?.addEventListener("click", (e) => {
-                this.ui.navBar?.toggleAttribute("js-menu-open")
+                this.ui.navBar?.toggleAttribute("data-js-menu-open")
                 this.ui.navBar?.setAttribute("aria-expanded", "")
 
-                if (this.ui.navBar?.hasAttribute("js-menu-open")) {
+                if (this.ui.navBar?.hasAttribute("data-js-menu-open")) {
                     this.ui.navBar.setAttribute("aria-expanded", "true")
                     this.ui.navBarToggleButton?.setAttribute("aria-expanded", "true")
                 } else {
@@ -95,7 +95,7 @@ export default class Navigation {
 
         if (this.ui.pageNavMenu) {
             this.ui.pageNav?.addEventListener("click", () => {
-                this.ui.pageNavMenu?.toggleAttribute("js-menu-open")
+                this.ui.pageNavMenu?.toggleAttribute("data-js-menu-open")
                 this.ui.pageNavMenu?.setAttribute("aria-expanded", "")
 
                 if (this.ui.pageNavMenu?.hasAttribute("js-menu-open")) {
