@@ -1,0 +1,24 @@
+/*=====================
+PARSLEY CSS UTILS
+======================*/
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+    --error: #B94A48;
+    --bg-error: #F2DEDE;
+    background-color: var(--bg-error) !important;
+
+    &::placeholder {
+        color: var(--error);
+    }
+}
+
+.parsley-errors-list {
+    --error: #B94A48;
+    margin-block-start: -.5rem !important;
+    margin-block-end: 1rem !important;
+    margin-inline-start: 1.2rem !important;
+    font-weight: var(--font-weight-semibold);
+    color: var(--error);
+    text-align: start;
+}
