@@ -1,0 +1,62 @@
+/*=====================
+MODULE - FORMS
+======================*/
+form {
+
+    max-width: 481px;
+    margin-inline: auto;
+    margin-block-start: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & > * {
+        flex: 1 1 1001px;
+    }
+
+    @include device(large) {
+        max-width: 1001px;
+        margin-inline-start: 0;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        border-radius: 25px;
+        background: var(--bs-white);
+        border: 3px solid var(--bs-secondary);
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        padding-inline: 1.5625rem;
+
+        &::placeholder {
+            color: var(--bs-black);
+            font-weight: $font-medium;
+
+            @include device(x-large) {
+                font-size: 1.375rem;
+            }
+        }
+    }
+
+    input {
+        height: 57px;
+
+        &[type="checkbox"] {
+            accent-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            border-radius: 0;
+
+            &:checked {
+                background-color: var(--bs-primary);
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+            }
+        }
+
+    }
+
+    textarea {
+        resize: none;
+        height: 8rem;
+        padding-block-start: .75rem;
+    }
+}

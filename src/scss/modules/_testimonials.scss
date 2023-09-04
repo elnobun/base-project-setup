@@ -1,0 +1,70 @@
+/*=====================================
+MODULE - TESTIMONIALS
+=====================================*/
+.testimonials {
+    .container {
+
+        & > * + * {
+            margin-block-start: 3rem;
+        }
+
+        @include device(xx-large) {
+            padding-inline: 3.4375rem;
+        }
+    }
+
+    .grid {
+        & > * {
+            @include device(x-small) {
+                margin-block: 1rem;
+            }
+        }
+    }
+
+    h2 {
+
+        @include device(x-small) {
+            padding-inline: 2rem;
+        }
+    }
+}
+
+figure {
+    max-width: 400px;
+    text-align: center;
+    margin-inline: auto;
+
+    & > * + * {
+        margin-block-start: 1rem;
+
+        @include device(medium) {
+            margin-inline: 1rem;
+        }
+    }
+
+    .image {
+        max-width: 148px;
+        margin-inline: auto;
+        aspect-ratio: 1;
+        border-radius: 100px;
+        border: 2px solid var(--bs-secondary);
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    & > span {
+        max-width: 145px;
+        margin-inline: auto;
+    }
+
+    figcaption {
+        margin-inline: 0.75rem;
+
+        span:first-child {
+            font-weight: $font-bold;
+        }
+    }
+}

@@ -1,2 +1,31 @@
 //  https: //utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
 // https: //typescale.com
+
+/*===============================
+TYPOGRAPHY - Headings, Paragraphs
+================================*/
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+    font-weight: $font-bold;
+}
+
+.h1 {
+    font-size: $h1;
+}
+
+.h2 {
+    font-size: $h2;
+}
+
+.h3 {
+    font-size: $h3;
+}
+
+p {
+    font-weight: $font-medium;
+    letter-spacing: 0.01rem;
+    line-height: 26px;
+}

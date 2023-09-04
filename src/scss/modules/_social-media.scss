@@ -1,0 +1,25 @@
+/*=========================
+MODULE - SOCIAL MEDIA ICONS
+==========================*/
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 236px;
+    margin-inline: auto;
+
+    @include device(x-large) {
+        --footer-top-space: 0;
+        margin-inline: 0;
+        max-width: 100%;
+    }
+
+    svg {
+        fill: var(--bs-primary);
+        width: 2.125rem;
+
+        &:hover {
+            fill: var(--bs-primary-dark);
+        }
+    }
+}

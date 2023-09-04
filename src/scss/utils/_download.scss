@@ -1,0 +1,5 @@
+a[href$="pdf"]:after {
+    /* href attribute ends with pdf */
+    content: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/652/pdficon_small.png);
+    padding-left: .3em;
+}

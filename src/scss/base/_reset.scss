@@ -71,6 +71,11 @@ select {
     font: inherit;
 }
 
+body {
+    max-width: 1920px;
+    margin-inline: auto;
+}
+
 /* Remove all animations, transitions and smooth scroll for those who prefer not to see them */
 @media(prefers-reduced-motion: reduce) {
     html:focus-within {
