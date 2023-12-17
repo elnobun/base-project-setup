@@ -30,14 +30,14 @@ export default class Carousel {
         this.preventImageDrag()
         this.addAttributeToCarouselChildren()
         this.cloneCards()
-        this.autoPlay && this._autoPlay()
+        this.autoPlay && this._autoPlay.bind(this)
         this.hasControls && this.handleArrowButtons()
         this.carousel?.addEventListener("mousedown", this.dragCardStart.bind(this))
         this.carousel?.addEventListener("mousemove", this.dragCard.bind(this))
         document.addEventListener("mouseup", this.dragCardStop.bind(this))
         this.carousel?.addEventListener("scroll", this.inifiniteScroll.bind(this))
-        this.carouselWrapper?.addEventListener("mouseenter", () => clearTimeout(this.timeoutId))
-        this.autoPlay && this.carouselWrapper?.addEventListener("mouseleave", this._autoPlay.bind(this))
+        // this.carouselWrapper?.addEventListener("mouseenter", () => clearTimeout(this.timeoutId))
+        // this.autoPlay && this.carouselWrapper?.addEventListener("mouseleave", this._autoPlay.bind(this))
     }
 
     static get controls() {
@@ -56,13 +56,16 @@ export default class Carousel {
     }
 
     private get carouselChildren() {
-        return this.carousel && [...this.carousel.children]
+        if (this.carousel) {
+            return Array.from(this.carousel.children)
+        }
     }
 
 
     private addAttributeToCarouselChildren(): void {
         const items = this.carouselChildren
-        this.carousel && items.forEach(item => {
+
+        items && items.forEach(item => {
             item.setAttribute("data-class", "carousel-item")
         })
         const card = this.carousel?.querySelector("[data-class='carousel-item']") as HTMLElement
@@ -77,27 +80,27 @@ export default class Carousel {
         const reversedFirstFewCards = this.carouselChildren?.slice(0, this.cardPerView)
         const reversedLastFewCards = this.carouselChildren?.slice(-this.cardPerView).reverse()
 
-        this.carousel && reversedFirstFewCards.forEach(card => {
+        reversedFirstFewCards?.forEach(card => {
             this.carousel.insertAdjacentHTML("beforeend", card.outerHTML)
         })
 
-        this.carousel && reversedLastFewCards.forEach(card => {
+        reversedLastFewCards?.forEach(card => {
             this.carousel.insertAdjacentHTML("afterbegin", card.outerHTML)
         })
     }
 
     private preventImageDrag(): void {
         if (this.carousel) {
-            const images = [...this.carousel?.querySelectorAll("img")]
+            const images = Array.from(this.carousel.querySelectorAll("img") as NodeListOf<HTMLElement>)
             images.forEach(img => {
-                img?.setAttribute("draggable", 'false')
+                img.setAttribute("draggable", 'false')
             })
         }
     }
 
     private handleArrowButtons(): void {
         this.carousel?.insertAdjacentHTML("beforebegin", Carousel.controls)
-        const controls: NodeListOf<HTMLButtonElement> = document?.querySelectorAll(".control")
+        const controls: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".control")
         controls.forEach(btn => {
             btn.addEventListener("click", () => {
                 this.carousel.scrollLeft += btn.id === "prev" ? -this.cardWidth : this.cardWidth
@@ -132,7 +135,7 @@ export default class Carousel {
         const viewableArea = scrollLeft === scrollWidth
         if (this.carousel?.scrollLeft === 0) {
             this.carousel.classList.add("no-transition")
-            this.carousel.scrollLeft = this.carousel.scrollWidth - (2 * this.carousel.offsetWidth)
+            this.carousel.scrollLeft = this.carousel.scrollWidth - (3 * this.carousel.offsetWidth)
             this.carousel.classList.remove("no-transition")
         } else if (viewableArea) {
             this.carousel.classList.add("no-transition")
@@ -146,6 +149,6 @@ export default class Carousel {
 
     private _autoPlay() {
         // if (window.innerWidth < 800) return
-        this.timeoutId = this.carousel && setTimeout(() => this.carousel.scrollLeft += this.cardWidth, this.speed)
+        this.timeoutId = setTimeout(() => this.carousel.scrollLeft += this.cardWidth, this.speed)
     }
 }

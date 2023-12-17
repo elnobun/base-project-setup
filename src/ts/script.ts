@@ -11,7 +11,7 @@
 //import { eProtection } from "./core_modules/eProtection";
 //import { getMediaQuery } from "./core_modules/checkMedia";
 
-import startModule from "./core_modules/startModule";
+import startModule from "./core/startModule";
 
 import * as custom from "./custom";
 

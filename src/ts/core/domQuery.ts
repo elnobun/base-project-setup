@@ -1,4 +1,7 @@
 // EXAMPLE bespoke ts for this site only.
+const selector = (element: string) => {
+    return document.querySelector(element) as HTMLElement;
+}
 const getElementId = (selector: string, parent = document) => {
     return parent.getElementById(selector) as HTMLElement;
 }

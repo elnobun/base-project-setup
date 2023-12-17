@@ -1,0 +1,38 @@
+/*=====================================
+LAYOUT - GRID
+=====================================*/
+.container {
+    padding-inline: 1rem;
+    width: 100%;
+    margin-inline: auto;
+
+    @include device(x-small) {
+        padding-inline: 18px;
+    }
+
+
+    @include device(medium) {
+        max-width: 48rem
+    }
+
+    @include device(large) {
+        max-width: 64rem
+    }
+
+    @include device(x-large) {
+        max-width: 80rem
+    }
+
+    @include device(xx-large) {
+        max-width: 90rem;
+        padding-inline: 0;
+    }
+
+    @include device(4k) {
+        max-width: 120rem;
+    }
+}
+
+.grid {
+    display: grid;
+}
