@@ -30,7 +30,7 @@ form {
 
         &::placeholder {
             color: var(--bs-black);
-            font-weight: $font-medium;
+            font-weight: $font-weight-medium;
 
             @include device(x-large) {
                 font-size: 1.375rem;
