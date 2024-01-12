@@ -1,10 +1,21 @@
 // Abstracts Files
-@use 'abstracts/mixins' as *;
-@use 'abstracts/variables' as *;
+@use 'base/variables' as *;
+@use 'base/mixins' as *;
+
 
 // Base Files
 @import 'base/reset';
 @import 'base/typography';
+
+// Components
+@import 'components/buttons';
+@import 'components/card';
+
+// Utils
+@import 'utils/avatar';
+
+// Modules
+@import 'modules/testimonials';
 
 // Layout Files
 @import 'layout/container';
@@ -12,18 +23,18 @@
 @import 'layout/navigation';
 @import 'layout/footer';
 
-// Components
-@import 'components/buttons';
-@import 'components/card';
-@import 'components/form';
 
 // Pages
+@import 'pages/news';
 // @import 'pages/home';
 // @import 'pages/contact';
 
-// Themses
+// Themes
 // @import 'themes/theme';
 // @import 'themes/admin';
+
+// Dont want to write SCSS, put your vanilla css in this folder path.
+// @import '../custom/override-scss';
 
 // Vendors
 @import 'vendors/hCaptcha';

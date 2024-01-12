@@ -1,0 +1,60 @@
+/*=====================
+PAGES - News Lists
+======================*/
+#articleHeading {
+    text-align: center;
+
+    hgroup {
+        display: grid;
+        gap: .75rem;
+    }
+
+    h2 {
+        color: inherit;
+    }
+
+    @include device(xx-large) {
+        text-align: start;
+    }
+}
+
+#articleBody {
+    a {
+        text-decoration: none;
+        font-weight: $font-weight-bold;
+
+        &:hover:not(.latestNewsNav, .newsPrevNav) {
+            text-decoration: underline;
+        }
+    }
+
+    #articleImage {
+        margin-block-end: 1.875rem;
+    }
+}
+
+
+#articleNav,
+.articleNav {
+    display: flex;
+    gap: 1rem;
+    margin-block-start: 2rem;
+
+    & > * {
+        border: 1px solid;
+        border-color: var(--bs-primary);
+        padding-block: 0.5625rem;
+        padding-inline: 1.125rem;
+        text-decoration: none;
+
+        &:hover {
+            background-color: var(--bs-link-hover-color);
+            color: var(--bs-white);
+            text-decoration: none;
+        }
+    }
+
+    .latestNewsNav {
+        margin-inline-end: auto;
+    }
+}

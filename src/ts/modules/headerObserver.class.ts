@@ -1,9 +1,11 @@
-import UI from "@/custom/UI.class"
+import UI from "./UI.core"
+import DOMQuery from "./UI.core"
+
 
 
 class HeaderObserver {
 
-    private ui = new UI
+    private ui = UI.instance
 
     static instance: HeaderObserver = new HeaderObserver()
 
@@ -12,14 +14,14 @@ class HeaderObserver {
     onWindowScroll() {
         const scrollableWatcher = document.createElement("div")
         scrollableWatcher.setAttribute('data-observer-intercept', '')
-        this.ui.header.before(scrollableWatcher)
+        this.ui?.header.before(scrollableWatcher)
         this.ui.headerIntersect = document.querySelector("[data-observer-intercept]") as HTMLElement
     }
 
     /**
      * @description Function set a box shadow on header when past scroll a certain point.
      */
-    private setHeaderShadow(): void {
+    setHeaderShadow(): void {
 
         /* The callback that will fire on intersection */
         const onIntersect = (entries: IntersectionObserverEntry[]) => {
@@ -30,7 +32,7 @@ class HeaderObserver {
 
         const observer = new IntersectionObserver(onIntersect)
 
-        observer.observe(this.ui.headerIntersect)
+        this.ui.headerIntersect && observer.observe(this.ui.headerIntersect)
     }
 }
 

@@ -1,3 +1,75 @@
 /*=====================================
 LAYOUT - HEADER
 =====================================*/
+[data-observer-intercept] {
+    position: absolute;
+}
+
+#primary-header {
+
+    position: sticky;
+    top: 0;
+    z-index: 98;
+    padding-block-start: .75rem;
+
+    &[data-header-box-shadow] {
+        box-shadow: $box-shadow;
+        background: rgba(255, 255, 255, 100%);
+        border-block-end: 0;
+
+    }
+
+    .container {
+        padding-inline: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .navToggle {
+        border: none;
+        background: transparent;
+        padding-inline: 0;
+
+        &[aria-expanded=true] .isOpen,
+        &[aria-expanded=false] .isClosed {
+            display: none;
+            transition: $transition-medium;
+        }
+
+        &[aria-expanded=false] .isOpen,
+        &[aria-expanded=true] .isClosed {
+            display: block;
+            transition: $transition-medium;
+        }
+    }
+
+    .logo,
+    .navToggle {
+        padding-inline: 1rem;
+    }
+
+    @include device(medium) {
+        padding-block-end: .75rem;
+
+        svg:not(.site-logo) {
+            width: 1.25rem;
+        }
+
+        .logo {
+            padding-inline-start: 0;
+        }
+
+        .navToggle {
+            display: none;
+        }
+
+    }
+
+    @include device(large) {
+        svg:not(.site-logo) {
+            width: 1.6875rem;
+        }
+    }
+}

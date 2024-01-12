@@ -1,0 +1,20 @@
+/*===============================
+COMPONENT - Cards
+================================*/
+// mixin - abstracts/_mixins.scss
+
+.card-group {
+    // card items represents nunber of card items in the div
+    // if the items is greater than 1, items will be centred
+    @include cardItems(3);
+}
+
+
+article {
+    @include cardSize(26.875rem);
+    @include cardType($shadow: true, $border-radius: false);
+
+    .body {
+        padding: 1.25rem;
+    }
+}

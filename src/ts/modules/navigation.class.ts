@@ -1,15 +1,21 @@
-import UI from "@/custom/UI.class"
+import mediaScreen from "core/checkMedia.core";
+import UI from "./UI.core";
+
+
 
 export default class Navigation {
+    private ui = UI.instance
+
     static instance: Navigation = new Navigation()
 
-    private ui = UI.instance
 
     constructor() {
         this.init()
     }
 
     private init() {
+        this.handleNavBarToggleButton()
+        this.disableAriaExpanded()
         // this.handleActiveLinkOnPageLoad()
         // this.handleNavigationToggle()
         // this.handleActiveLinkOnclick()
@@ -36,6 +42,38 @@ export default class Navigation {
             listItem.closest(".navBarListItem") && listItem.closest(".navBarListItem")?.classList.add(classList)
         }
     }
+
+    private resetAttributes(): void {
+
+        const { navBarToggle, navBarLists } = this.ui
+
+
+        navBarToggle.setAttribute('aria-expanded', 'false')
+        navBarLists.removeAttribute('aria-expanded')
+    }
+
+    private handleNavBarToggleButton(): void {
+        const { navBarToggle, navBarLists } = this.ui
+
+        this.ui.navBarToggle.addEventListener('click', () => {
+            navBarToggle?.setAttribute('aria-expanded', `${!(navBarToggle.getAttribute('aria-expanded') === 'true')}`)
+            navBarLists?.setAttribute('aria-expanded', `${!(navBarLists.getAttribute('aria-expanded') === 'true')}`)
+        })
+
+    }
+
+    private disableAriaExpanded(): void {
+        const { navBarLists } = this.ui
+
+        mediaScreen('min-width', '768', (e: MediaQueryListEvent) => {
+            if (e.matches) {
+                this.resetAttributes()
+            } else {
+                navBarLists.removeAttribute('aria-expanded')
+            }
+        })
+    }
+
 
     // private handleActiveLinkOnPageLoad(): void {
     //     this.ui.navBarListItem.forEach(listItem => {

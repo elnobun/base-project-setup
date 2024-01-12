@@ -2,15 +2,19 @@
 html {
     height: 100%;
     scroll-behavior: smooth;
+    hanging-punctuation: first last;
 }
 
 // body
 body {
     height: 100%;
+    min-height: 100svh;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     overscroll-behavior-x: contain;
+    max-width: 1920px;
+    margin-inline: auto;
 }
 
 //  links
@@ -34,6 +38,7 @@ button {
 }
 
 // html presentational elements
+img,
 span,
 picture,
 video,
@@ -48,6 +53,11 @@ video,
 canvas,
 svg {
     max-width: 100%;
+}
+
+svg:not(.site-logo) {
+    width: 1.6875rem;
+    aspect-ratio: 1;
 }
 
 img {
@@ -79,11 +89,6 @@ select {
     font: inherit;
 }
 
-body {
-    max-width: 1920px;
-    margin-inline: auto;
-}
-
 /* Remove all animations, transitions and smooth scroll for those who prefer not to see them */
 @media(prefers-reduced-motion: reduce) {
     html:focus-within {
@@ -99,3 +104,11 @@ body {
         scroll-behavior: auto !important;
     }
 }
+
+@media(prefers-reduced-motion: no-preference) {
+    :has(:target) {
+        scroll-behavior: smooth;
+    }
+}
+
+// @media (prefers-color-scheme: dark) {}

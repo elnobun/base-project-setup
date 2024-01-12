@@ -13,7 +13,7 @@
 
 import startModule from "./core/startModule";
 
-import * as custom from "./custom";
+import * as custom from "./app";
 
 /**
  * 

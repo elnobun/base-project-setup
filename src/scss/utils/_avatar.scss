@@ -1,0 +1,11 @@
+/*=====================
+UTILITY - Avatar
+======================*/
+.img-circle {
+    @include avatar(100px, $circle: true);
+    background-color: dodgerblue;
+
+    // @media print {
+    //     background-color: red;
+    // }
+}

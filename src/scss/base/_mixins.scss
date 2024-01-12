@@ -1,0 +1,108 @@
+@use "sass:math";
+@use '../base/variables' as *;
+
+// RESPONSIVE BREAKPOINTS
+@mixin device($breakpoint) {
+    $query: map-get($breakpoints, $breakpoint);
+
+    $query-args: if(type-of($query)=='string',
+            unquote($query),
+            inspect($query));
+
+    @if $query-args {
+
+        @media #{$query-args} {
+            @content;
+        }
+    }
+
+    @else {
+        @error 'No value found for `#{$breakpoint}`. '
+        + 'Please make sure it is defined in `$breakpoints` map at `abstract/mixins` folder.';
+    }
+}
+
+
+// Reset orderd and unorderd list
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// AVATAR SIZE/SHAPE DECLARATION
+@mixin avatar($size, $circle: false, $hasImage: false) {
+    width: $size;
+    height: $size;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--bs-white);
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+
+    @if $circle {
+        border-radius: math.div($size, 2);
+    }
+
+    @if $hasImage {
+        img {
+            object-fit: cover;
+            width: 100%;
+            position: absolute;
+        }
+    }
+
+}
+
+
+// Button Styles Mixin
+@mixin buttonProperty($radius: false) {
+    @if $radius {
+        border-radius: $circle-radius;
+    }
+}
+
+
+// Cards
+@mixin cardSize($size) {
+    max-width: $size;
+}
+
+
+@mixin cardItems($items: 0) {
+    display: grid;
+
+    @if $items > 1 {
+        place-content: center;
+        row-gap: 2rem;
+
+        @include device(medium) {
+            grid-template: auto/repeat(2, 1fr);
+            column-gap: 2rem;
+        }
+
+        @include device(large) {
+            grid-template: auto/repeat(3, 1fr);
+        }
+    }
+}
+
+@mixin cardType($shadow: true, $border-radius: false) {
+    background-color: var(--bs-white);
+
+    @if $shadow {
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    }
+
+    @if $border-radius {
+        border-bottom-left-radius: 0.5625rem;
+        border-bottom-right-radius: 0.5625rem;
+    }
+
+    overflow: hidden;
+
+}

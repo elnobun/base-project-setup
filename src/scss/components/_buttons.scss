@@ -1,0 +1,79 @@
+/*===============================
+COMPONENT - Buttons
+================================*/
+$border: true;
+$rounded-corners: false;
+
+%btn-base {
+    border: if($border, $border-light solid $black, null);
+    // border-radius: if($rounded-corners, $circle-radius, null);
+    @include buttonProperty($radius: true);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: .625rem;
+    text-decoration: none;
+    width: max-content;
+    padding-inline: 20px;
+    padding-block: 10px;
+
+}
+
+// $main-colors is referenced from abstract/_variables.scss
+@each $name, $color in $main-colors {
+
+    .btn-#{$name} {
+        @extend %btn-base;
+
+        @if $name !='default' {
+            background-color: $color;
+            color: $white;
+            border-color: $color;
+
+            svg {
+                width: 1.5rem;
+                fill: $white;
+            }
+
+            &:hover {
+                background-color: darken($color, 5%);
+            }
+        }
+
+        @else {
+            background-color: transparent;
+            color: $black;
+            border: $border-light solid $black;
+
+            &:hover {
+                background-color: darken($primary, 5%);
+                color: $white;
+            }
+        }
+    }
+}
+
+
+// @mixin inline-animation($duration) {
+//     $name: inline-#{unique-id()};
+
+//     @keyframes #{$name} {
+//         @content;
+//     }
+
+//     animation-name: $name;
+//     animation-duration: $duration;
+//     animation-iteration-count: infinite;
+// }
+
+// .pulse {
+//     @include inline-animation(2s) {
+//         from {
+//             background-color: yellow
+//         }
+
+//         to {
+//             background-color: red
+//         }
+//     }
+// }

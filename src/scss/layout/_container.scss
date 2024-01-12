@@ -1,15 +1,22 @@
 /*=====================================
 LAYOUT - GRID
 =====================================*/
+.grid {
+    display: grid;
+}
+
 .container {
     padding-inline: 1rem;
     width: 100%;
     margin-inline: auto;
 
     @include device(x-small) {
-        padding-inline: 18px;
+        padding-inline: 1.125rem;
     }
 
+    // @include device(small) {
+    //     max-width: 26.5625rem;
+    // }
 
     @include device(medium) {
         max-width: 48rem
@@ -24,15 +31,8 @@ LAYOUT - GRID
     }
 
     @include device(xx-large) {
-        max-width: 90rem;
+        max-width: 82.5rem;
         padding-inline: 0;
     }
 
-    @include device(4k) {
-        max-width: 120rem;
-    }
-}
-
-.grid {
-    display: grid;
 }

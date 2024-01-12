@@ -1,3 +1,56 @@
 /*=====================================
 LAYOUT - NAVIGATION
 =====================================*/
+#nav {
+    flex: 100%;
+
+    .navItems {
+        @include reset-list;
+        padding-block-start: 1rem;
+        // overflow: visible;
+        // max-height: 500px;
+        // transition: max-height .2s ease-in-out;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height .2s ease-in-out;
+
+        &[aria-expanded="false"] {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .2s ease-in-out;
+        }
+
+        &[aria-expanded="true"] {
+            overflow: visible;
+            max-height: 500px;
+            transition: max-height .2s ease-in-out;
+        }
+    }
+
+
+    .navItem {
+        padding-block: .75rem;
+    }
+
+    a {
+        display: block;
+        padding-inline: 1rem;
+    }
+
+    @include device(medium) {
+        all: unset;
+
+        .navItems {
+            display: flex;
+            padding-block-start: unset;
+            max-height: unset;
+            overflow: unset;
+        }
+
+        a {
+            padding-block: unset;
+        }
+    }
+
+
+}

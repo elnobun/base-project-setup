@@ -7,6 +7,14 @@
 /*===============================
 TYPOGRAPHY - Headings, Paragraphs
 ================================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
 
 h2,
 .heading-2 {
@@ -48,6 +56,9 @@ h3 {
     margin-block-end: 1.625rem;
 }
 
-p {
+
+p:not(article.body) {
     margin-block-end: 1.875rem;
+    text-wrap: pretty;
+    max-width: 75ch;
 }
